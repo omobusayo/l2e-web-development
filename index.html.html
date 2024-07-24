@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Mortgage Calculator</title>
+
+ <style>
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: plus jakarta sans ;
+  }
+
+  .app-container{
+    background-color: hsl(202, 80%, 94%);
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-content: center;
+  }
+ 
+  .card{
+    justify-content: center;
+    align-content: center;
+    display: flex; 
+    flex-wrap: wrap;
+  }
+
+  section.one{
+   border-radius:10px 0 0 10px;
+   padding: 1rem 1em;
+   width: 400px;
+   height:400px;
+ background-color: hsl(0, 0%, 100%);
+  }
+
+  section.one header{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    margin-left: 2rem;
+    margin-bottom: 5px;
+    width: 100%;
+    font-family:inherit;
+    }
+    
+    h3.mort{
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    color: rgb(3, 28, 49);
+    
+}
+.clear{
+  margin-left:30px;
+  margin-right: 30px;
+  background-color: white;
+    color:rgba(129, 110, 123, 0.418);
+    font-family: inherit;
+    font-weight: 700;
+    text-decoration-line: underline;
+    border: none;
+}
+form{
+  height: 400px;
+  margin-top: 1rem;
+  margin-left: 2rem;
+  width: 300;
+}
+.amount label{
+  color: rgb(3, 28, 49);
+  font-size:12px;
+  font-weight: 500;
+  display: block;
+  margin-top:1rem;
+  margin-bottom:0.5rem;
+
+}
+.amount input{
+  padding-top: 0.3rem;
+  padding-bottom: 0.25rem;
+  padding-left: 2rem;
+  border-radius: 3px;
+  border: 1px solid  hsl(200, 35%, 66%);
+  width: 90%;
+}
+.amount span{
+  position: absolute;
+  padding-top: 0.2rem;
+  padding-left: 0.4rem;
+  background-color: rgb(230, 230, 241);
+  width:1.5%;
+  height:4.1%;
+}
+.amount input text{
+  font-size: smaller;
+  font-weight: 1000; 
+}
+.house{
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  margin-left: 0.01rem;
+  position: relative;
+}
+.child-a-house{
+  width: 50%;
+  height: 100%;
+padding: 0.5rem;
+ margin-right: 20px;
+ padding-left: 0.01rem;
+ position: relative;
+
+}
+
+.child-a-house label{
+  font-size:small ;
+  font-weight: 400;
+  color: rgb(3, 28, 49);
+  display: block;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+
+.child-a-house input{
+  padding: 0.3rem 0.4rem;
+  text-align: left;
+  width: 128px;
+  border-radius: 3px;
+  border: 1px solid hsl(200, 24%, 40%);
+  position: relative;
+
+}
+
+.child-a-house span{
+  position:absolute;
+  background-color:rgb(230, 230, 241);
+  padding:4px;
+  min-width:30%;
+  right: 34%;
+  height: 36%;
+  left: 55.43%;
+}
+
+.child-b-house{
+padding: 0.5rem;
+ margin-right: 20px;
+ position: relative;
+ padding-left: 0.01rem;
+ width: 50%;
+ position: relative;
+  
+}
+
+.child-b-house label{
+  font-size: 13px;
+  font-weight: 400;
+  color: rgb(3, 28, 49);
+  display: block;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+} 
+.child-b-house input{
+  padding: 0.3rem 0.4rem;
+  text-align: left;
+  width: 132px;
+  border-radius: 3px;
+  border: 1px solid hsl(200, 24%, 40%);
+}
+
+.child-b-house span{
+  position: absolute;
+  background-color: rgb(230, 230, 241);
+  right: 11.5%;
+  height: 38%;
+  
+}
+
+label.twins{
+font-size: 15px;
+font-weight: 500;
+color:hsl(201, 36%, 35%);
+text-transform: capitalize;
+display: block;
+margin-bottom: .3rem;
+margin-top: 0.5rem;
+padding: 0.4rem;
+}
+
+div.copy{
+  margin-bottom: 0.4rem;
+  border-radius: 4px;
+  padding: 0.3rem ;
+  padding-left: 0.4rem;
+  border: 1px solid hsl(200, 24%, 40%);
+box-shadow:hsl(200, 24%, 40%);
+width:90% ;
+}
+
+div.copy label{
+  font-weight: 800;
+  font-size: 12px;
+  color: hsl(201, 39%, 38%);
+ margin-left: 1rem;
+}
+ 
+  form button{
+  background-color: hsl(78, 70%, 52%);
+  color:hsl(202, 55%, 16%) ;
+  padding : 2px 2px;
+border: none;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  width: 13rem;
+  margin-top: 2rem;
+}
+section.two{
+  border-radius:0 10px 10px 30px;
+   padding: 1rem 1em;
+   width: 400px;
+   height:400px;
+ background-color: rgb(10, 26, 26);
+ flex-wrap: wrap;
+}
+section.two header{
+    align-items: left;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    margin-bottom: 5px;
+    width: 100%;
+    font-family:inherit;
+    }
+    h3{
+      font-family: inherit;
+      color:beige;
+      font-weight: 400;
+    }
+     p.a {font-family: inherit;
+      color:beige;
+      font-size: 12px;
+      font-weight: 200;
+      line-height: 20px;
+      margin-bottom: 1.5rem;
+      margin-left: 1rem;
+    }
+    .repayment{
+border: 1px solid;
+padding: 2rem;
+border-radius: 5px;
+border-top-color: hsl(78, 70%, 52%); 
+border-top-width: 3px;
+
+    }
+     p.mon{
+      font-size: 9px;
+      color: beige;
+      font-weight: 100;
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+      font-family: inherit;
+    }
+    h1.euro{
+      font-size: 28px;
+      color: rgb(248, 232, 10);
+      padding-bottom: 1rem;
+    }
+    .money{
+      border-top: 1px solid;
+      border-top-color: rgb(41, 41, 36);
+      border-top-width: 0.0001 rem;
+    }
+    p.tot{
+      font-size: 9px;
+      font-family: inherit;
+      color: beige;
+      padding-top: 1rem;
+      padding-bottom: 0.3rem;
+    }
+    h3.tot{
+      font-size: 15px;
+      color: rgb(248, 232, 10);;
+    }
+</style>
+</head>
+
+<body>
+  <div class="app-container">
+    <div class="card">
+      <section class="one">
+        <header>
+          <h3  class="mort">Mortgage calculator</h3>
+          <button class="clear">Clear All</button>
+        </header>
+
+        <form>
+          <!-- first child -->
+          <div class="one">
+             <div class="amount">
+              <label for="amount">Mortgage Amount</label>
+              <span>£</span>
+              <input type="text" placeholder="300,000">
+            </div>
+          </div>
+
+           <!-- second child -->
+           <div class="house">
+            <div class="child-a-house">
+                <label for="child-a-house">Mortgage Term</label>
+                <input type="text" placeholder="25">
+                <span>years</span>  
+              </div>
+
+          
+              <div class="child-b-house">
+                <label for="child-b-house">Interest Rate</label>
+                <input type="text"  placeholder="5.25">
+                <span>%</span>
+              </div>
+            </div>
+            <!-- third child -->
+            <div class="twins">
+              <label class="twins">Mortgage Type</label>
+              <div class="copy">
+                <input type="radio" name="Repayment" id="repayment-type">
+              <label for="repayment-type">Repayment</label>
+              </div>
+
+              <div class="copy">
+                <input type="radio" name="interest only" id="class-type">
+                <label for="interest only"> Interest Only</label>
+              </div>
+
+            <!-- fourth child -->
+              <button class="form_button" type="submit">
+                <img src="./assets/image/icon-calculator.svg" alt="calculator">
+              <span>Calculate Repayments</span>
+            </button>
+            
+          </form>
+        </section>
+
+        <section class="two">
+            <article class="rrrr">
+              <header>
+              <h3>Your results</h3>
+              </header>
+              <p class="a">Your results are shown below based on the information you provided. To adjust the results, edit the form and click "calculate repayments" again. </p>
+                      <article class="repayment">
+              <div class="lemon box">
+                <p class="mon">Your monthly repayments</p>
+                <h1 class="euro">£1,797.74 </h1>
+              </div>
+  
+              <div class="money">
+              <p class="tot">Total you'll repay over the term</p>
+                <h3 class="tot">£539,322.94</h3>
+              
+            </article>
+  
+            </div>
+          </section>
+        </div>
+      </div>
+    </body>
+  </html>
+  
